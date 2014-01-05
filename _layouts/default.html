@@ -2,13 +2,34 @@
 <html>
   <head>
     <title>{{ page:title }}</title>
-    <meta name='description' content='Mike Knepper is a web developer in Chicago.' />
-    <link rel="stylesheet" type="text/css" href="/css/yeti.css">
+    <meta name="description" content="Mike Knepper is a web developer in Chicago." />
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/yeti.css">
   </head>
 
   <body>
-    <h1>Mike Knepper</h1>
-    {{ content }}
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">mk</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Blog</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      {{ content }}
+    </div>
+
   </body>
 </html>
