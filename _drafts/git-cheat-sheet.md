@@ -3,10 +3,10 @@ layout: post
 title: Git Cheat Sheet
 ---
 
-Intro paragraph about git here.
+Git is a fantastic tool for software development. 
 
 ## The Basics
-At the most basic level, git keeps track of your project as it evolves through a series of changes. Each stage or checkpoint is called a commit.
+At the most basic level, git keeps track of a project as it evolves through a series of changes. Each stage or checkpoint is called a commit.
 - `git init` initializes git to track changes in the current directory and its subdirectories
 - `git status` gives you an overview of the current state of the project
 - `git add <filename>` adds `filename` to git's staging area. This allows you to add only specific files to the next commit.
