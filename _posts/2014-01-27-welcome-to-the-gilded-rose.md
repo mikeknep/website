@@ -2,7 +2,7 @@
 layout: post
 title: Welcome to the Gilded Rose
 ---
-I recently began working on the Gilded Rose Kata in Ruby. This is a fairly famous exercise originally written in C# but translated into several different languages [1][]. Unlike the other katas I've worked on so far, the Gilded Rose Kata begins with pre-existing code, and is primarily an exercise in refactoring.
+I recently began working on the Gilded Rose Kata in Ruby. This is a fairly famous exercise originally written in C# but translated into several different languages [1][1]. Unlike the other katas I've worked on so far, the Gilded Rose Kata begins with pre-existing code, and is primarily an exercise in refactoring.
 
 The premise of the Gilded Rose Kata begins with a store selling various items. Each night they update the qualities and sell-by dates of the items in their inventory using a method their previous developer wrote for them. There are several rules that dictate how these values are updated--for example, most items decrease in quality each day, but "aged brie" increases in quality, as do concert tickets as the day of the concert gets closer (but it then drops to 0 after the concert). The idea is that the store now plans to sell a new kind of item with yet another unique set of rules, and you are tasked with updating their system to accommodate these new items.
 
@@ -12,4 +12,4 @@ Once I had some tests to provide a bit of a safety net, it was time to move on t
 
 I'm not done working on the Gilded Rose yet--I reduced the code down to something much more workable, but I haven't yet added the new item functionality. I found a video online of someone performing the kata in Ruby, and this person has a very nice looking solution that is similar to mine, although I think one thing he did is actually incorrect. Interestingly enough, I believe this person's mistake can be traced back to an incorrect test in their suite that falsely suggests the code is functioning properly. Once again, this illustrates the value of Test Driven Development--when you strictly follow the rule of writing tests for the most basic functionality possible and writing only the least amount of production code that can make that pass test, you will be prepared and covered for all exceptions and edge cases.
 
-[1] for better or worse. Some have argued that the kata should only be done in the original language, since if the store's existing system was in C# you wouldn't rewrite the whole thing in, say, Ruby. It's a good point, but I think there's value in the exercise for developers of all languages and skill levels, not just C# devs.
+[1]: for better or worse. Some have argued that the kata should only be done in the original language, since if the store's existing system was in C# you wouldn't rewrite the whole thing in, say, Ruby. It's a good point, but I think there's value in the exercise for developers of all languages and skill levels, not just C# devs.
