@@ -2,19 +2,14 @@
 layout: default
 ---
 
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <h1 class="page-header text-center">{{ page.title }}</h1>
-  </div>
+<div class="row page-header text-center">
+  <h1>{{ page.title }}</h1>
 </div>
-<div class="row">
-  <div class="col-md-2">
-    <p class="text-center text-muted">{{ page.date | date: '%B %e, %Y' }}<p>
-    <br>
-  </div>
-  <div class="col-md-8">
-    {{ content }}
-    <br>
-    <p class="small"><a href="/invisible_cities/">Back</a></p>
-  </div>
+<p class="text-center text-muted">{{ page.date | date: '%B %e, %Y' }}<p>
+<br>
+{{ content }}
+<br>
+<div class="col-md-6 col-md-offset-3">
+  <a class="btn btn-block btn-success" href="/invisible_cities/">Great post! Where can I read more?</a>
+  <a class="btn btn-block btn-danger" href="/invisible_cities/">I hated it. Where's something else?</a>
 </div>
