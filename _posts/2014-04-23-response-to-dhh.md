@@ -5,8 +5,6 @@ title: Response to DHH
 
 DHH, the inventor of Ruby on Rails, published a [blog post](http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html) this morning in which he criticizes TDD, unit testing, and (vaguely) several software design principles. This is my response.
 
-#### Important note: though my opinions have been significantly shaped by my residency at 8th Light, they in no way should be construed as those of the company as a whole. These thoughts are entirely my own, and this post is not written with the intention of being published on the 8th Light blog.
-
 
 The lack of a thorough test suite has become a source of intense discomfort for me. I built several apps independently last year and continue to maintain them in production, and fixing bugs or adding features is difficult and stressful due entirely to the absence of tests. I have to be extremely careful when making changes to be sure that everything continues to work as expected. Even minor changes require a significant amount of time, as well as brainstorming all the possible ways some alteration could break something elsewhere in the app.
 
