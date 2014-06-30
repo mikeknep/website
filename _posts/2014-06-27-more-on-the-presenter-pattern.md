@@ -43,7 +43,7 @@ end
 This will give us our desired functionality, but it will clutter up the BookPresenter class with methods that are barely doing anything. Fortunately, Ruby's "Forwardable" module provides a way to cleanly and concisely effect this behavior.
 
 {% highlight ruby %}
-'require forwardable'
+require 'forwardable'
 
 class BookPresenter
 	extend Forwardable
