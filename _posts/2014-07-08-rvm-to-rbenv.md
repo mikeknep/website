@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 
+title: RVM to rbenv
 ---
 
 I recently switched from RVM to rbenv for managing Ruby versions. Here's why, and how.
