@@ -11,22 +11,20 @@ My [previous post](http://mikeknep.com/2014/06/06/threading-in-java.html) demons
 
 Making a request to the server in a separate thread is not particularly difficult, but we have to get a little creative with the assertions the test makes. Unfortunately, Junit cannot properly execute assertions made in separate threads--only assert statements made in the main thread of the test will affect the test's result. For example:
 
-{% highlight java %}
-
+```java
 @Test
 public void itDoesntAssertInSeparateThreads() {
-	Thread otherThread = new Thread(new Runnable() {
-		@Override
-		public void run() {
-			assertTrue(false);
-		}
-	});
+  Thread otherThread = new Thread(new Runnable() {
+    @Override
+    public void run() {
+      assertTrue(false);
+    }
+  });
 
-	otherThread.start();
-	assertTrue(true);
+  otherThread.start();
+  assertTrue(true);
 }
-
-{% endhighlight %}
+```
 
 Despite the obviously false Junit assertion `assertTrue(false)` in `otherThread`, this test will pass. Therefore, we can't assert that the socket connection in a separate thread receives a 200 response, as that assertion will never actually get checked.
 
@@ -36,43 +34,41 @@ This latter point is especially important. At a high level, the goal of tests is
 
 That actually doesn't sound too difficult to simulate! We can have one "client" thread connect to the server, sleep for a while, and then print a request to the server. In the meantime, a second client connects to the server and immediately sends its request. We can then verify two things: first, that the second client receives a 200 response, and second, that the second client receives a response before the first, slow client receives a response. Check it out (note, I've refactored some functionality out into separate methods for readability in the test):
 
-{% highlight java %}
-
+```java
 @Test
 public void itHandlesMultipleRequestsIndependently() throws Exception {
-	Thread slowClient = new Thread(new Runnable() {
-		@Override
-		public void run() {
-			try {
-				Socket socket = new Socket("localhost", 9110);
-				Thread.sleep(3000);
-				makeGETrequest(socket);
-				socket.close();
-			} catch (Exception e) {}
-		}
-	});
+  Thread slowClient = new Thread(new Runnable() {
+    @Override
+    public void run() {
+      try {
+        Socket socket = new Socket("localhost", 9110);
+        Thread.sleep(3000);
+        makeGETrequest(socket);
+        socket.close();
+      } catch (Exception e) {}
+    }
+  });
 
-	runServer(9110);
-	Thread.sleep(100);
+  runServer(9110);
+  Thread.sleep(100);
 
-	slowClient.start();
-	Thread.sleep(100);
+  slowClient.start();
+  Thread.sleep(100);
 
-	Socket socket = new Socket("localhost", 9110);
-	makeGETrequest(socket);
-	String firstLine = readFirstLine(socket);
-	socket.close();
-	Date secondRequestCloseTime = new Date();
+  Socket socket = new Socket("localhost", 9110);
+  makeGETrequest(socket);
+  String firstLine = readFirstLine(socket);
+  socket.close();
+  Date secondRequestCloseTime = new Date();
 
-	assertEquals("HTTP/1.1 200 OK", firstLine);
+  assertEquals("HTTP/1.1 200 OK", firstLine);
 
-	slowClient.join();
-	Date firstRequestCloseTime = new Date();
-	
-	assertTrue(secondRequestCloseTime.before(firstRequestCloseTime));
+  slowClient.join();
+  Date firstRequestCloseTime = new Date();
+
+  assertTrue(secondRequestCloseTime.before(firstRequestCloseTime));
 }
-
-{% endhighlight %}
+```
 
 The `join()` method on the `Thread` class waits for the process executing in the thread to finish, so `Date firstRequestCloseTime` will represent the moment the slow client's socket closes and `run()` terminates.
 

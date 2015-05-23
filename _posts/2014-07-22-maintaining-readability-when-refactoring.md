@@ -7,7 +7,7 @@ Significant refactors can be slick and impressive in the git diff, but it's impo
 
 Alex wrote a great [post](http://alexander-hill.tumblr.com/post/91202439460/useful-clojure-macros-for-the-object-oriented) recently diving into Clojure macros. It inspired me to go back to my Clojure implementation of Tic-Tac-Toe and see if I could refactor any functions to be more terse and idiomatic. I quickly identified three functions using the `loop/recur` syntax that could be refactored into tighter, one-line statements:
 
-{% highlight clojure %}
+```clojure
 ;
 ; Original
 ;
@@ -55,8 +55,7 @@ Alex wrote a great [post](http://alexander-hill.tumblr.com/post/91202439460/usef
 
 (defn- column-indexes [length]
   (apply mapv vector (row-indexes length)))
-
-{% endhighlight %}
+```
 
 I greatly enjoyed refactoring these methods. Obviously the new versions are more concise, which is a quality I generally admire in all forms of communication. They also feel more dynamic and alive--looping and recurring feels tiresome compared to these few words that explode with action. But before we declare this refactor a success, there is one more important thing to take into consideration: readability.
 
@@ -76,16 +75,14 @@ Making certain functions private prioritizes your code for other developers. The
 
 My refactored `values-at-indexes` function might still be tricky to grasp. Is it named descriptively? Meh, I'm not overjoyed with the name, but I can't really think of a better one either. I can't make it private because some rule functions need to call it. However, given it is a public function and I practice TDD, there should be a test for this function. Indeed there is; it looks like this:
 
-{% highlight clojure %}
-
+```clojure
 (it "returns the tokens played on the board at the provided indexes"
   (let [indexes [0 2 4]
         board   ["X" nil "O"
                  nil nil nil
                  nil nil nil]]
     (should= ["X" "O" nil] (values-at-indexes indexes board)))))
-
-{% endhighlight %}
+```
 
 Aha! The test clearly states in English what the function should do, and on top of that demonstrates it in action!
 

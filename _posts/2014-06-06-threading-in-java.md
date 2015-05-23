@@ -17,31 +17,28 @@ My first implementation of multi-threading came in my tests. Despite sufficient 
 
 Realizing I needed to use threading, my first thought was to make separate threads for the server and the client and tie them up together. However, I soon realized that this would be overkill, since (as I explained above) the test itself has/is a thread available to me. I decided to put the server in a separate thread and act as the client from the test's main/default thread. Here's the beginning of the test defining the server's thread:
 
-{% highlight Java %}
-
+```java
 @Test
 public void itReceivesRequestAndSendsResponse() throws Exception {
-	Thread serverThread = new Thread(new Runnable() {
-		@Override
-		public void run() {
-			try {
-				ServerSocket serverSocket = new ServerSocket(2468);
-				Server server = new Server("public/", serverSocket, "public/mock.jar");
-				server.run();
-			} catch (Exception e) {}
-		}
-	});
+  Thread serverThread = new Thread(new Runnable() {
+    @Override
+    public void run() {
+      try {
+        ServerSocket serverSocket = new ServerSocket(2468);
+        Server server = new Server("public/", serverSocket, "public/mock.jar");
+        server.run();
+      } catch (Exception e) {}
+    }
+  });
 
-	serverThread.start();
-	// ...
+  serverThread.start();
+  // ...
 }
-
-{% endhighlight %}
+```
 
 A thread needs to be initialized with an instance of some class that implements Java's `Runnable` interface, which mostly just means it has a `run()` method. In my test, I instantiate my server thread with a neat Java trick called an "anonymous class". This is a one-off class--I won't need to use it anywhere else--that simply defines a `run()` method to implement Runnable. The `serverThread.start();` line calls that run method to fire up the server, but in its own separate thread, leaving me free to continue to write code in the original thread of the test:
 
-{% highlight Java %}
-
+```java
 // ...
 serverThread.start();
 
@@ -57,8 +54,7 @@ String firstLine = bufferedReader.readLine();
 socket.close();
 
 assertEquals("HTTP/1.1 200 OK", firstLine);
-
-{% endhighlight %}
+```
 
 The test simply opens up a socket connection to the server, makes a basic request, and ensures that it receives a 200 response. With this test in place, I can feel more confident making larger-scale changes like completely gutting the routing logic, and I don't need to keep manually starting the server and clicking around to be sure it works.
 
@@ -66,16 +62,14 @@ The test simply opens up a socket connection to the server, makes a basic reques
 
 Implementing threads into the production code of the server is actually less complicated that in the test. As I demonstrated in the test, we need a class that implements Runnable (with a `run()` method) that we pass in to a thread instance for execution. Rather than using an anonymous class, however, the production code will use a fully defined class. I decided to call this class `Worker`. It essentially holds the high-level wiring that had been in my Server class being executed in the infinite `while (true)` loop. What's nice is that by isolating the logic of what happens for an individual test from the class listening for and accepting multiple requests, I can easily test the wiring of a single connection (my Worker test) without needing a server spinning in a separate thread. It also pushes the details down, so that the Server class's `run()` method now just looks like this:
 
-{% highlight Java %}
-
+```java
 public void run() throws Exception {
-	while (true) {
-		SocketConnection clientConnection = new SocketConnection(serverSocket);
-		threadPool.execute(new Worker(clientConnection, rootDirectory, routingApplication));
-	}
+  while (true) {
+    SocketConnection clientConnection = new SocketConnection(serverSocket);
+    threadPool.execute(new Worker(clientConnection, rootDirectory, routingApplication));
+  }
 }
-
-{% endhighlight %}
+```
 
 The intent and responsibility of this class and method is much better expressed: wait for a connection, and when you get one, execute a Worker to handle it in a thread. At the same time, the Worker class better expresses the high-level process of a single request/response exchange.
 

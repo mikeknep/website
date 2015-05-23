@@ -16,16 +16,16 @@ It was pretty frustrating that some stupid thing the browser did and over which 
 ### ExceptionHandler
 I decided this was as good a time as any to start handling exceptions more professionally in my server. Many methods in my server were declared with `throws Exception`, but until recently none of them were actually *dealing with* those exceptions in any meaningful way. So, instead of just writing `public void run() throws Exception {}`, I wrapped the `run()` method in a try/catch block. This allows you to specify things to be done should an exception be thrown:
 
-{% highlight java %}
+```java
 public void run() {
-    try {
-        // do stuff here
-    }
-    catch (Exception e) {
-        // if an exception occurs anywhere in the try block, do this stuff here
-    }
+  try {
+    // do stuff here
+  }
+  catch (Exception e) {
+    // if an exception occurs anywhere in the try block, do this stuff here
+  }
 }
-{% endhighlight %}
+```
 
 You'll notice the argument in the catch block, `(Exception e)`. This allows me to use the actual exception object by referencing the variable `e`. I began building out an ExceptionHandler class responsible for analyzing the particular exception and reacting appropriately. Some exceptions, like the ArrayIndexOutOfBoundsException thrown as a result of phantom requests, should just be ignored. Others, however, might warrant a 500 response getting sent to the user. In the case of the former I can simply log the request for my own knowledge, close the socket, and go back to listening for requests. In latter cases, I tell my ResponseBuilder object to build a 500 response and send it to the user before closing the socket.
 

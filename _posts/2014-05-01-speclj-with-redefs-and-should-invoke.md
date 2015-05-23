@@ -8,7 +8,7 @@ Speclj is a Clojure testing framework very similar to Ruby's RSpec. Its most bas
 ### Stubbing with-redefs
 This week I added a Spanish language option to my Clojure Tic-Tac-Toe. A config file holds a simple language declaration `{:language "English"}`, and a corresponding translation file `translations/english.txt` contains the raw output text for that language. In the code, `language` parses the config file to determine which language to use, while `language-source` calls the language function to return the appropriate language file:
 
-{% highlight clojure %}
+```clojure
 (ns tictactoe.language)
 
 (defn language []
@@ -16,13 +16,13 @@ This week I added a Spanish language option to my Clojure Tic-Tac-Toe. A config 
 
 (defn language-source []
   (str "translations/" (clojure.string/lower-case (language)) ".txt"))
-{% endhighlight %}
+```
 
 These functions both depend on the `parse` method reaching out to the config.txt file, which is exactly what I want during gameplay, but not ideal for testing, for two reasons. First, I only want to test the language namespace (the parse function is tested separately in its own spec). Second, the config.txt file will change in the future as users change their preferred language, but I want to control the data in my tests.
 
 So, we want to stub the `parse` function. To do this, I used Clojure's `with-redefs` function. My tests look like this:
 
-{% highlight clojure %}
+```clojure
 (describe "language"
   (it "returns the language from the config file"
     (with-redefs [parse (fn [_] (str "{:language \"Pig-Latin\"}\n"))]
@@ -31,7 +31,7 @@ So, we want to stub the `parse` function. To do this, I used Clojure's `with-red
   (it "returns the english text file when language is set to English"
     (with-redefs [language #(str "English")]
       (should= "translations/english.txt" (language-source)))))
-{% endhighlight %}
+```
 
 A couple things to notice here. First, `with-redefs` is not providing a static return value like a string; instead, it is temporarily redefining the function *as some other function to be executed*. That explains the somewhat silly-looking `#(str "English")`. Second, though I prefer Clojure's short anonymous function syntax (with the # symbol), I had to use the longer fn syntax for `parse` because my original `parse` function requires an argument (the filename). Even though I don't use that argument (represented in my test as an underscore) in the new temporary function, I still have to redefine the function with the same number of arguments. The hashtag (#) syntax doesn't let you declare an argument without using it.
 

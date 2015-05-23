@@ -9,55 +9,50 @@ The problem with my previous implementation of the Presenter is that it leads to
 
 We know we need a BookPresenter class to hide things like formatting logic, so we'll keep that, but we'll refer to that object as `@book` in the view and not pass the actual book object:
 
-{% highlight ruby %}
-
+```ruby
 class BookController < ApplicationController
-	def show
-		book = Book.find(params[:id])
-		@book = BookPresenter.new(book)
-	end
+  def show
+    book = Book.find(params[:id])
+    @book = BookPresenter.new(book)
+  end
 end
-
-{% endhighlight %}
+```
 
 The question is how to handle any fields that we originally were calling directly on the instance of Book (in other words, methods that don't need formatting logic, like `title` or `page_count`). We could define those methods on the BookPresenter and in those method definitions just call the field on the book object we passed in upon initialization:
 
-{% highlight ruby %}
-
+```ruby
 class BookPresenter
-	def initialize(book)
-		@book = book
-	end
+  def initialize(book)
+    @book = book
+  end
 
-	def title
-		@book.title
-	end
+  def title
+    @book.title
+  end
 
-	def page_count
-		@book.page_count
-	end
+  def page_count
+    @book.page_count
+  end
 end
-
-{% endhighlight %}
+```
 
 This will give us our desired functionality, but it will clutter up the BookPresenter class with methods that are barely doing anything. Fortunately, Ruby's "Forwardable" module provides a way to cleanly and concisely effect this behavior.
 
-{% highlight ruby %}
+```ruby
 require 'forwardable'
 
 class BookPresenter
-	extend Forwardable
-	def_delegators :@book, :title, :page_count
+  extend Forwardable
+  def_delegators :@book, :title, :page_count
 
-	def initialize(book)
-		@book = book
-	end
+  def initialize(book)
+    @book = book
+  end
 
-	def pub_date
-		@book.publication_date.strftime("%B %d, %Y")
-	end
+  def pub_date
+    @book.publication_date.strftime("%B %d, %Y")
+  end
 end
-
-{% endhighlight %}
+```
 
 With Forwardable and `def_delegators`, we are essentially saying "if `title` or `page_count` is called on an instance of BookPresenter, call that method on `@book` instead of the instance of this class." Lovely! We can now pass just one variable, `@book`, to the show view template. This one object is solely responsible for all the presentational logic regarding the data about that book.

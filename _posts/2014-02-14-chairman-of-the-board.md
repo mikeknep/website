@@ -9,46 +9,46 @@ My first challenge in adding Sinatra to my app was wondering simply where to *pu
 
 As with so many things, the key was to just start small. Forget about any data specific to the app--my first step was to put a file somewhere in the app directory that would generate a "Hello world!" page on the web. I decided to just put a file in the root directory named "sinit.rb" which would be responsible for initializing a Sinatra server. The file looked like this:
 
-{% highlight ruby %}
+```
 require 'sinatra'
 
 get '/' do
-	"Hello, world!"
+  "Hello, world!"
 end
-{% endhighlight %}
+```
 
 ...yes I'm serious. That's all it takes. Don't believe me? [RTFM](http://www.sinatrarb.com/intro.html)! OK so great, I could basically copy and paste the first example from the Sinatra docs. It seems like nothing, but in fact, this small step was one of the most powerful for me. It's always satisfying to see something generate on the screen the way you expect and want (particularly in a web browser for some reason), and to be able to do that with such a concise amount of code was comforting. I realized this wouldn't require a terrible amount of configuration and directories all over the place if I didn't want it to.
 
 ### I've Got the World on a String
 Things started moving quite quickly after this first step. How about an index of all the bank's customers? I decided to borrow a few Rails conventions I like by creating a route "/people" for the people index. I needed a more advanced layout than just a string output, so I created an ERB view file, and I needed to grab all the people from the repository. The result?
 
-{% highlight ruby %}
+```
 #sinit.rb
 require 'sinatra'
 
 get '/' do
-	"Hello, world!"
+  "Hello, world!"
 end
 
 get '/people' do
-	@people = People.all
-	erb :people_index
+  @people = People.all
+  erb :people_index
 end
 
 #views/people_index.erb
 <h1>People index</h1>
 <ul>
-	<% @people.each do |person| %>
-		<li><%= person.full_name %></li>
-	<% end %>
+  <% @people.each do |person| %>
+    <li><%= person.full_name %></li>
+  <% end %>
 </ul>
-{% endhighlight %}
+```
 
 Can you guess what happened? An error! The file doesn't know what People.all means. Well, this is actually easily solved--just load all the files into "sinit.rb" so that it understands everything in my app.
 
-{% highlight ruby %}
+```ruby
 Dir["lib/*.rb"].each { |file| load file }
-{% endhighlight %}
+```
 
 Now "sinit.rb" is aware of everything in the lib directory, and the people index page loads successfully.
 

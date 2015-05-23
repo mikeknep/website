@@ -4,6 +4,8 @@ title: The Dangers of Ruby Gems
 excerpt: When you use a gem, you are choosing to rely on someone else's code rather than your own. You are trading control for convenience. Sometimes this trade works out splendidly, but other times it leads to far more trouble than it's worth.
 ---
 
+(Also posted on the [8th Light blog][8lblog].)
+
 Since I first began learning Ruby a little over a year ago at The Starter League, I've been wary of using gems. I remember a friend at TSL discovering the famous authentication gem [Devise](https://github.com/plataformatec/devise) just a few weeks into the class and talking about how simple it made authentication. A few months later I was working on a Rails app for a freelance client and thought, "Hey, I'll try using Devise in this app." Within a week I had gutted the gem and completely started over rolling my own custom authentication system.
 
 When you use a gem, you are choosing to rely on someone else's code rather than your own. You are trading control for convenience. Sometimes this trade works out splendidly, but other times it leads to far more trouble than it's worth.
@@ -34,3 +36,5 @@ At 8th Light, we strive to make our code readable and expressive. A gem may give
 ### Dependencies
 
 If a gem you're using releases a new version with some features you want, you can't always just upgrade the gem and be set. Gems frequently rely on other gems, and those dependencies can occasionally clash. Much like a single gem reaching across too many parts of a system, too many gems (even smaller ones) interacting with each other leads to significant rigidity when it comes time to upgrade.
+
+[8lblog]: http://blog.8thlight.com/mike-knepper/2014/08/05/the-dangers-of-ruby-gems.html

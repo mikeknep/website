@@ -8,7 +8,7 @@ I've been working on a bank app in Ruby. It doesn't do anything particularly fan
 
 My first thought was to simply create an array for each "kind" of object and store those objects by simply shoveling (`<<`) them into that array after they get instantiated.
 
-{% highlight ruby %}
+```ruby
 # person.rb
 class Person
   attr_reader :first_name, :last_name
@@ -26,13 +26,13 @@ module PersonRepository
     @people << person
   end
 end
-{% endhighlight %}
+```
 
 I instantiate a Person object with `p = Person.new(first_name: "Miles", last_name: "Davis")`, then store it in memory via `PersonRepository.add(p)`. A decent solution, but not very configurable. For example, what if sometime in the future we wanted to instead store our data in a Riak key/value store (not so coincidentally my goal for this coming week)? We'd have to completely re-write the PersonRepository code from scratch, and almost certainly change some things in other areas of the app as well. From a SOLID perspective, this violates the Open/Closed Principle (more on SOLID coming in a later post).
 
 So, what can we do instead? Enter the Repository Pattern. We add an abstracted Repository later that allows us to add new types of repositories (memory, Riak, SQL, Redis, etc.) without requiring extensive modification of the code. Here's an outline:
 
-{% highlight ruby %}
+```ruby
 # person.rb
 class Person
   attr_reader :first_name, :last_name, :id
@@ -76,7 +76,7 @@ module MemoryRepository
     end
   end
 end
-{% endhighlight %}
+```
 
 First, you register an instance of the kind of repository you want to use for the given model/noun: `Repository.register(:person, MemoryRepository::PersonRepository.new)`. This would be executed someplace like the rake console task before starting Pry, or maybe a spec_helper file before launching RSpec. The Repository module's @repositories hash now looks like this: `{:person => MemoryRepository::PersonRepository.new}`, so when we call `Repository.for(:person)` somewhere, we are returned our instance of the MemoryRepository::PersonRepository in which we're storing all our person objects.
 
