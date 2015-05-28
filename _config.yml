@@ -1,5 +1,5 @@
 markdown: redcarpet
-pygments: true
+highlighter: pygments
 name: Invisible Cities
 description: Thoughts, comments, discoveries, and more pertaining to software development and craftsmanship.
-url: http://mikeknep.com/invisible_cities/
+url: mikeknep.com/invisible_cities

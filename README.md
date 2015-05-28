@@ -1,1 +1,1 @@
-This is my site / blog using GitHub Pages.
+My blog.
