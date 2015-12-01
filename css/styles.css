@@ -1,9 +1,9 @@
 /* Small screens */
 html {
-  background-color: #d4e5e5;
   font-size: 75%;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  line-height: 125%;
 }
 
 /* Medium screens */
@@ -28,7 +28,7 @@ html {
 /* Container */
 .container {
   margin: 0 auto;
-  max-width: 48rem;
+  max-width: 56rem;
   width: 90%;
 }
 
@@ -95,24 +95,24 @@ header {
 }
 
 .title {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 700;
   color: #bd2b2b;
   text-transform: uppercase;
 }
 
 .byline {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
   font-weight: 300;
   font-style: italic;
   color: #808080;
 }
 
 
-h2 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  color: #838383;
+h1,h2,h3 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  line-height: 115%;
 }
 
 /* Post metadata */
@@ -123,13 +123,17 @@ h2 {
   font-size: 75%;
 }
 
-/* Code highlighting */
+/* Code */
 pre {
-  background-color: #e7e7e7;
   border-style: dotted;
   border-width: 1px;
   border-color: #7c7c7b;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-left: 3rem;
+}
+
+code {
+  font-family: 'Inconsolata';
+  font-weight: 400;
 }
