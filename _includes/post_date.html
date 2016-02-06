@@ -1,0 +1,6 @@
+<p class="post-date">
+  {{ include.p.date | date: '%B %e, %Y' }}
+  {% if include.p.8thLightURL %}
+    <a href="{{ include.p.8thLightURL }}"><img src="/images/8th-Light-Logo.png" height="26" width="26"></a>
+  {% endif %}
+</p>

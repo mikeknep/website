@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "Handling Exceptions with Middleware in Clojure"
+8thLightURL: http://blog.8thlight.com/mike-knepper/2015/05/19/handling-exceptions-with-middleware-in-clojure.html
 ---
-
-(Also posted on the [8th Light blog][8Lblog].)
 
 My team was recently tasked with developing a few HTTP endpoints in our Clojure service to be used by a separate UI.
 The requirements included a few POST endpoints to allow users to create new records in our Postgres database.
@@ -353,7 +352,6 @@ I can imagine some interesting applications of middleware in other contexts like
 Try it out on your next Clojure project and see where it takes you!
 
 
-[8lblog]: http://blog.8thlight.com/mike-knepper/2015/05/19/handling-exceptions-with-middleware-in-clojure.html
 [Compojure]: https://github.com/ring-clojure/ring "Compojure"
 [Ring]: https://github.com/ring-clojure/ring "Ring"
 [handler/api]: https://github.com/weavejester/compojure/blob/master/src/compojure/handler.clj#L19-L30 "handler/api"

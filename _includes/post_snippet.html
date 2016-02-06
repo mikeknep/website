@@ -4,6 +4,6 @@
     {{ post.excerpt }}
   </div>
   <div class="column one-fourth">
-    <p class="post-date">{{ post.date | date: '%B %e, %Y' }}</p>
+    {% include post_date.html p=post %}
   </div>
 </article>

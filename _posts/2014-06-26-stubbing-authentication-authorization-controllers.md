@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Stubbing Authentication and Authorization in Controller Specs
+8thLightURL: http://blog.8thlight.com/mike-knepper/2014/07/01/stubbing-authentication-and-authorization-in-controller-specs.html
 ---
-
-(Also posted on the [8th Light blog][8lblog].)
 
 Controllers are powerful and complicated objects that easily accumulate responsibilities. Even when following the classic Rails convention of "Skinny Controllers, Fat Models", controllers still have a lot to handle. One extremely important responsibility is checking user authentication and authorization. The typical way to handle these two critical aspects of a web application in Rails is through the use of `before_action` or `before_filter` statements. These are called before specified actions in the controller and are capable of redirecting users before they reach those actions. For example:
 
@@ -182,5 +181,3 @@ describe NuclearLaunchCodesController do
   end
 end
 ```
-
-[8lblog]: http://blog.8thlight.com/mike-knepper/2014/07/01/stubbing-authentication-and-authorization-in-controller-specs.html

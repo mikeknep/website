@@ -1,9 +1,8 @@
 ---
 layout: post
 title: "The Hidden Costs of Leaving a Monolith"
+8thLightURL: http://blog.8thlight.com/mike-knepper/2016/01/20/hidden-costs-of-leaving-a-monolith.html
 ---
-
-(Also posted on the [8th Light blog][8lblog].)
 
 Have you read any blog posts about splitting a Rails monolith into microservices?
 Or listened to a podcast or watched a talk?
@@ -103,6 +102,3 @@ If the API responds more empathetically, client teams avoid the frustration of a
 
 Microservices can offer many benefits and advantages over a monolithic architecture, but they introduce new problems, too.
 Whether you're a CTO proposing a big redesign to stakeholders or a junior developer working on one of dozens of services, keeping these problems in mind will help ensure healthy systems and developers.
-
-
-[8lblog]: http://blog.8thlight.com/mike-knepper/2015/05/19/handling-exceptions-with-middleware-in-clojure.html
