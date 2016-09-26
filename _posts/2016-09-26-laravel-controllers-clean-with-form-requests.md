@@ -227,8 +227,9 @@ By using Form Requests in Laravel, you can mimic some of the benefits of static 
 As a result, your code is both safer and more readable.
 
 
-<br />
+##### Footnotes
 <span id="footnote-1"><a href="#source-1">[1]</a></span> You can define custom requests for GET endpoints too, which are particularly useful for API endpoints that support filtering via query parameters.
+
 <span id="footnote-2"><a href="#source-2">[2]</a></span> Within the context of a server-side framework, at least. These same validations could be performed on the client using JavaScript.
 
 [laravel-home]: https://laravel.com/
