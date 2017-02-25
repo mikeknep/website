@@ -45,6 +45,8 @@ html {
     padding-right: 1rem;
   }
 
+  .column.one-third { width: 33%; }
+  .column.two-thirds { width: 66%; }
   .column.three-fourths { width: 75%; }
   .column.one-fourth { width: 25%; }
   .column.flow-opposite { float: right; }
@@ -88,10 +90,6 @@ p.back-footer {
 header {
   margin-top: 6rem;
   margin-bottom: 4rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  float: right;
-  width: 75%;
 }
 
 .title {
@@ -107,12 +105,17 @@ header {
   color: #808080;
 }
 
-
 h1,h2,h3 {
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   line-height: 115%;
 }
+
+
+p.description {
+  margin-bottom: 3rem;
+}
+
 
 /* Post metadata */
 .post-date {
@@ -121,6 +124,7 @@ h1,h2,h3 {
   font-weight: 300;
   font-size: 75%;
 }
+
 
 /* Code */
 pre {
@@ -135,4 +139,16 @@ pre {
 code {
   font-family: 'Inconsolata';
   font-weight: 400;
+}
+
+
+/* Images */
+img#me {
+  max-width: 100%;
+  border-radius: 25px;
+}
+
+img.logo {
+  height: 26px;
+  width: 26px;
 }

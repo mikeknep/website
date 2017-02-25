@@ -1,9 +1,9 @@
 <article class="row clearfix">
-  <div class="column three-fourths flow-opposite">
-    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  <div class="column two-thirds flow-opposite">
+    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
     {{ post.excerpt }}
   </div>
-  <div class="column one-fourth">
+  <div class="column one-third">
     {% include post_date.html p=post %}
   </div>
 </article>
