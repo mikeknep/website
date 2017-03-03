@@ -2,6 +2,3 @@ markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
-name: Invisible Cities
-description: Thoughts, comments, discoveries, and more pertaining to software development and craftsmanship.
-url: mikeknep.com/invisible_cities
