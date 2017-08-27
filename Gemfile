@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-gem 'github-pages'
 gem 'jekyll'
+gem 'jekyll-lilypond-converter', git: 'https://github.com/mikeknep/jekyll-lilypond-converter', branch: 'master'
