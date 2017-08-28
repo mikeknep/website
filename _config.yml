@@ -5,3 +5,4 @@ kramdown:
 plugins:
   - jekyll-lilypond-converter
 exclude: [vendor, "Gemfile", "Gemfile.lock"]
+include: [.well-known]
