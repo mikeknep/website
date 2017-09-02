@@ -4,5 +4,5 @@ kramdown:
   hard_wrap: false
 plugins:
   - jekyll-lilypond-converter
-exclude: [vendor, "Gemfile", "Gemfile.lock"]
+exclude: [vendor, "Dockerfile", "Gemfile", "Gemfile.lock", "README.md"]
 include: [.well-known]
