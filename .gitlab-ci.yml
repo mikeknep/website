@@ -1,11 +1,10 @@
-image: ruby:2.4
+image: registry.gitlab.com/mikeknep/mikeknep.gitlab.io
 
 cache:
   paths:
     - vendor/
 
 before_script:
-  - bin/install-lilypond.sh
   - bundle install --path vendor/
 
 pages:
