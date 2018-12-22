@@ -1,6 +1,7 @@
 language: ruby
 rvm:
   - 2.4
+dist: xenial
 
 before_install:
   - sudo apt-get install -qqy lilypond
