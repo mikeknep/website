@@ -1,20 +1,10 @@
 language: ruby
 rvm:
-  - 2.4
+  - 2.5.4
 dist: xenial
 
 before_install:
-  - sudo apt-get install -qqy lilypond
   - bundle install
 
 script:
-  - bundle exec jekyll build -d public
-
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  target_branch: master
-  local_dir: public
-  on:
-    branch: source
+  - bin/build.sh
