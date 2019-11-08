@@ -3,5 +3,9 @@ kramdown:
   input: GFM
   hard_wrap: false
 plugins:
+  - jekyll-feed
   - jekyll-lilypond-converter
 exclude: [vendor, "Gemfile", "Gemfile.lock", "README.md"]
+url: https://mikeknep.com
+author: Mike Knepper
+title: Invisible Cities
