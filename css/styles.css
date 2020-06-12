@@ -1,6 +1,6 @@
 /* Small screens */
 html {
-  font-size: 75%;
+  font-size: 100%;
   font-family: 'Work Sans', sans-serif;
   font-weight: 300;
   line-height: 125%;
@@ -8,12 +8,18 @@ html {
 
 /* Medium screens */
 @media (min-width: 40rem) {
-  html { font-size: 85%; }
+  html {
+    font-size: 110%;
+    line-height: 125%;
+  }
 }
 
 /* Large screens */
 @media (min-width: 64rem) {
-  html { font-size: 100%; }
+  html {
+    font-size: 120%;
+    line-height: 145%;
+  }
 }
 
 
