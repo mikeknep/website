@@ -3,13 +3,8 @@ layout: default
 title: Mike Knepper
 ---
 
-<h2>Hi! I'm Mike. (And that's Tapu.)</h2>
-
-<p class="description">
-I'm a polyglot software developer at <a class="colored" href="http://www.8thlight.com/" target="_blank">8th Light</a>.
-This site exists primarily to share my writing on coding and consulting.
-Outside of tech, I'm a big NBA fan and jazz aficionado.
-</p>
+{% capture include_about %}{% include about.md %}{% endcapture %}
+{{ include_about | markdownify }}
 
 <section>
   {% for post in site.posts %}
