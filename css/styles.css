@@ -78,6 +78,8 @@ html {
 /* Links */
 a {
   color: #000;
+}
+a.no_underline {
   text-decoration: none;
 }
 a.colored {
