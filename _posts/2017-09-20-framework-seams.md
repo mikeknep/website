@@ -6,7 +6,6 @@ title: "Framework Seams"
 
 I recently created an open source plugin for [Jekyll][], the Ruby static site generator.
 _Jekyll LilyPond Converter_ (henceforth JLC; [source][], [RubyGems][]) converts specified code snippets in Markdown blog posts to music images using [LilyPond][].
-(A small demo exists [here][demo].)
 The project was just complex enough to warrant using a pattern I often use on larger projects, as well as bite me with a sneaky, related "gotcha", both of which are worth reviewing and sharing.
 This pattern relates to a concept I call a "seam" that I find myself carefully considering more and more in all the software I write.
 
