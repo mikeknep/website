@@ -3,8 +3,8 @@ layout: default
 title: Mike Knepper
 ---
 
-{% capture include_about %}{% include about.md %}{% endcapture %}
-{{ include_about | markdownify }}
+{% capture about %}{% include about.md %}{% endcapture %}
+{{ about | markdownify }}
 
 <section>
   {% for post in site.posts %}
