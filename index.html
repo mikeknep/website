@@ -6,8 +6,8 @@ title: Mike Knepper
 {% capture about %}{% include about.md %}{% endcapture %}
 {{ about | markdownify }}
 
-<section>
-  {% for post in site.posts %}
-    {% include post_snippet.html %}
-  {% endfor %}
-</section>
+{% for post in site.posts %}
+  <article class="row clearfix">
+    <h3><a class="no_underline" href="{{ post.url }}">{{ post.title }}</a></h3>
+  </article>
+{% endfor %}

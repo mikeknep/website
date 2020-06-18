@@ -3,7 +3,13 @@ layout: default
 ---
 
 <h1>{{ page.title }}</h1>
-{% include post_date.html p=page %}
+
+<p class="post-date">
+  {{ page.date | date: '%B %e, %Y' }}
+  {% if page["8thLightURL"] %}
+    <a href="{{ page['8thLightURL'] }}"><img class="logo" src="/images/8th-Light-Logo.png" /></a>
+  {% endif %}
+</p>
 
 {{ content }}
 <p class="back-footer"><a class="colored" href="/">Back</a></p>
