@@ -3,3 +3,4 @@ _site
 *.swp
 _drafts/
 lily_images/
+.jekyll-cache
