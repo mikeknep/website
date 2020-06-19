@@ -168,3 +168,13 @@ img.logo {
   height: 26px;
   width: 26px;
 }
+
+h1 img.emoji {
+  height: 100%;
+  width: 60px;
+}
+
+img.emoji {
+  height: 100%;
+  width: 30px;
+}
