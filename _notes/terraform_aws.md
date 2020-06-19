@@ -1,7 +1,9 @@
 ---
-layout: post
+layout: note
 title: Terraform / AWS
 ---
+
+# :thinking: :pencil: :books: :cloud:
 
 ---
 
