@@ -39,6 +39,11 @@ html {
 }
 
 
+article {
+  padding-top: 3%;
+}
+
+
 /* Columns */
 .column {
   margin-bottom: 1.5rem;
