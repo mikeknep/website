@@ -9,3 +9,6 @@ exclude: [bin, vendor, "Gemfile", "Gemfile.lock", "README.md"]
 url: https://mikeknep.com
 author: Mike Knepper
 title: Invisible Cities
+collections:
+  notes:
+    output: true
