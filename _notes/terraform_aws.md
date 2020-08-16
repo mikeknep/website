@@ -17,6 +17,11 @@ The backend role is used to read and record the state(s) of those resources befo
 So, you can define a role that only has access to read and write to your Terraform remote state bucket _and do nothing else_.
 We even set up `TerraformRemoteStateReadWrite` and `TerraformRemoteStateRead` (only) roles, the latter used for looking up values via `terraform_remote_state`.
 
+Going "up a level," the credentials used to run `terraform apply` only need the ability to assume the roles used in the Terraform blocks.
+In our case, these creds are either:
+- static/long-lived programmatic access keys belonging to an IAM user used exclusively in our CI environment
+- ephemeral/short-lived programmatic access keys acquired by an SSO user assuming a role in an account
+
 ---
 
 Services defining / "owning" their own security groups has proven a useful pattern.
@@ -31,6 +36,11 @@ A good pattern for bucket modules: create "read" and "write" policies and export
 The result is a module that:
 - has useful "public methods" (the policies, which multiple clients can attach to roles as needed)
 - encapsulates details (no need to expose KMS keys encrypting bucket contents, policy is defined once instead of repeatedly by N clients)
+
+That said, S3 buckets tend to have frustratingly subtle differences that prevent defining a single shared module.
+Examples include:
+- encryption (prefer KMS, but some situations require the default AES256)
+- cross-account access (trusted principals on the bucket's policy)
 
 ---
 
