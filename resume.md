@@ -2,51 +2,53 @@
 layout: default
 ---
 
-# 8th Light
+## 8th Light
 <h4 class="byline">Mar 2014–present</h4>
 
-### Infrastructure
+### DevSecOps
 
-- Currently leading a new platform team responsible for rebuilding existing AWS infrastructure from the ground up with security the top priority
-  - Deep experience with numerous AWS services coordinated across over twenty accounts
-  - Developed CI infrastructure for running Terraform with role-based authorization
-  - Regularly communicate with CISO to leverage mechanisms for detecting and preventing insecure infrastructure
-  - Review findings of multiple third-party audits and help advise whether items should be remediated or considered acceptable risk
+- Lead development of and migration to a new AWS platform
+  - Remediated over 100 third party security audit findings
+  - Improved CIS Benchmarks security score over thirty percentage points
+  - Obviated 90% of total static IAM user access keys by establishing role-based auth patterns for both local and CI environments
+  - Created, managed resources in, and coordinated cross-account access between thirty AWS accounts
+  - Updated Terraform codebases to help migrate three teams' cloud services to new accounts
+  - Communicated regularly with CISO, Head of Engineering, and project teams' developers about available security tools and their findings
 
 ### Data Engineering
 
-- Lead development of data analytics platform for global reinsurance company
-  - Leveraged several AWS services, managed via Terraform, to create a fully serverless pipeline from ingestion through validation and standardization to reporting
-  - Provided ways for business analysts to explore raw partner data and combine it with normalized financial data
-- Member of multiple teams developing a global-scale big data platform
-  - Lead development and analysis of SQL queries for extracting data from SAP systems
-  - Contributed to a Python tool to parse, validate, and templatize SQL queries
-  - Updated user authentication rules in a Kafka REST Proxy client application in Scala
+- Lead development of a serverless data ingestion pipeline for analyzing and improving a global reinsurer's loss ratio
+  - Parsed policy and claim data in ten different file formats and schemas to load into a normalized PostgreSQL database
+  - Developed SQL and Python transformation scripts to enable data team members to explore raw and transformed data with their preferred tools
+  - Replaced a custom Python-based SFTP server with AWS Transfer to improve performance and reduce developer maintenance costs
+- Worked on multiple teams developing a big data platform for a global construction equipment manufacturer to predict part failure
+  - Took over lead development of a Python tool designed to templatize eleven core PostgreSQL queries for 150 dealers' source systems in order to onboard dealers more efficiently
+  - Lead development and analysis of queries for dealers with hundreds of millions of records in SAP systems
 
 ### Application Development
 
-- Extensive back-end experience in both monolithic and (micro)service-oriented architectures using numerous languages, frameworks, and technologies, including Ruby (Rails, Sinatra), Scala (Play, Akka), Clojure, PHP (Laravel), Docker, Kafka, RabbitMQ, PostgreSQL, and Redis
-- Some front-end web and mobile (iOS) experience using TypeScript with React and Swift
-
-### Project Management
-
-- Primary liaison between development teams and client stakeholders on multiple projects—demoing progress, addressing scope, timelines and budgets, and defining requirements
-- Facilitated and improved communication channels between development teams, project managers, business analysts, and product stakeholders as an Agile consultant at a regional insurance company
+- Contributed to eight web application systems ranging from legacy monoliths to greenfield microservices, using Ruby (Rails, Sinatra), Scala (Play, Akka), Clojure, Python, PHP (Laravel), TypeScript (React), Java, Docker, Kafka, RabbitMQ, PostgreSQL, and Redis
+- Served as lead developer and primarily liaison between development teams and client stakeholders on three of the projects above
+  - Created and presented system architecture diagrams and feature summaries
+  - Helped define requirements and future functionality
+  - Addressed scope, timelines, and budgets
+  - Demoed progress on feature development
 
 ### Internal Culture
-- Mentored multiple coworkers through 8th Light’s software apprenticeship
-- Regular contributor to 8th Light blog as author and editor
-- Reviewed and provided feedback on several applicant code challenge submissions
+- [Authored eleven][my-blog-posts] and edited over twenty coworkers' posts on the company blog
+- Mentored two coworkers through 8th Light's software development apprenticeship
+- Reviewed over ten applicant code submissions and managed a team of submission reviewers
 
-# Freelance
+## Freelance
 <h4 class="byline">Jun 2013–Mar 2014</h4>
 
 ### Web Development
 
 - Led development of a Rails application for CQA to facilitate event creation and guest reservations, membership payments, content distribution, and group email announcements
-- Independently developed an internal Rails application for Batavia Public Library staff to register patrons for the summer reading program, track progress, and report participation statistics
+  - Maintained and supported the application and its users through July 2020
+- Developed a Rails application for the Batavia Public Library Youth Services staff to register 1,200 patrons for the summer reading program, track progress, and report participation statistics
 
-# Education
+## Education
 
 ### University of Illinois at Urbana Champaign
 <h4 class="byline">Aug 2005–May 2009</h4>
@@ -54,3 +56,5 @@ layout: default
 _Bachelor of Arts_, Comparative and World Literature
 
 Phi Beta Kappa honor society, _summa cum laude_
+
+[my-blog-posts]: https://8thlight.com/blog/mike-knepper
