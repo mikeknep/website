@@ -169,6 +169,10 @@ img.logo {
   width: 26px;
 }
 
+.emoji {
+  transform: translate(0, 4px);
+}
+
 h1 img.emoji {
   height: 100%;
   width: 60px;
