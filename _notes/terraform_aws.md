@@ -41,6 +41,10 @@ That said, S3 buckets tend to have frustratingly subtle differences that prevent
 Examples include:
 - encryption (prefer KMS, but some situations require the default AES256)
 - cross-account access (trusted principals on the bucket's policy)
+To combat this, focus on creating many small modules that can be composed together.
+- client read/write policies
+- bucket policy statements (require SSL, open cross-account access, etc.)
+- kms key with alias and default policy
 
 ---
 
@@ -54,3 +58,24 @@ We manage all VPC peering connections in a single repository to 1) share boilerp
 Peering connections are established to serve some purpose—service A needs access to service B.
 The security group rules required to support that connection are directly related to the connection itself—there is no use in having one without the other.
 Therefore we want that "neutral, third-party" codebase to define the rules alongside the connection as a single, cohesive "unit".
+
+---
+
+**Generating** Terraform code.
+Useful workaround while Terraform does not support iterating over _providers_.
+(Workspaces are also good for this, but sometimes the right dimension for the workspace requires duplicative code.
+Example dependencies between AWS accounts may mean AWS regions are the right workspace dimension,
+but the resources going into each account need to be duplicated.)
+
+First approach was to have CI generate Terraform code in an early stage, and then plan and apply that code in later stages.
+This ended up being hard to reason about, and we felt forced to push _everything_ through the generator even if it didn't seem quite necessary (ex. "generating" a single resource).
+
+Refactored to continue to use Terraform to generate code, but checking the generated code into git.
+- Easier to reason about because the full entrypoint is present in the local repo.
+- Given how modules work, it's easy to mix generated and non-generated resources.
+  - One `.tf` file with a bunch of generated resources, and another `.tf` file in the same directory with manually written resources
+- Generally speaking: easier to **generate many files with 1-2 duplicated resources** than to **generate many duplicated resources in a single file**
+
+Because Terraform is doing the generation, it will want to keep track of state.
+But, since the generated files are being checked into git, it's advised to use git as the "true" state, and ignore the Terraform state.
+In practice, this means local state + `.gitignore` + `-auto-approve`
