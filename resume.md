@@ -5,15 +5,18 @@ layout: default
 ## 8th Light
 <h4 class="byline">Mar 2014–present</h4>
 
-### DevSecOps
+### Platform Engineering
 
-- Lead development of and migration to a new AWS platform
+- Lead development of a new security-first AWS platform
   - Remediated over 100 third party security audit findings
   - Improved CIS Benchmarks security score over thirty percentage points
   - Obviated 90% of total static IAM user access keys by establishing role-based auth patterns for both local and CI environments
-  - Created, managed resources in, and coordinated cross-account access between thirty AWS accounts
-  - Updated Terraform codebases to help migrate three teams' cloud services to new accounts
   - Communicated regularly with CISO, Head of Engineering, and project teams' developers about available security tools and their findings
+- Served 16 developers across multiple project teams
+  - Created, managed resources in, and coordinated cross-account access between thirty AWS accounts
+  - Updated Terraform codebases to help migrate teams' cloud services to new accounts
+  - Developed an internal registry for shared Terraform modules to standardize infrastructure
+  - Set up a shared Datadog instance with platform-level tagging to facilitate service observability
 
 ### Data Engineering
 
@@ -47,6 +50,8 @@ layout: default
 - Led development of a Rails application for CQA to facilitate event creation and guest reservations, membership payments, content distribution, and group email announcements
   - Maintained and supported the application and its users through July 2020
 - Developed a Rails application for the Batavia Public Library Youth Services staff to register 1,200 patrons for the summer reading program, track progress, and report participation statistics
+- Developed an admin dashboard for Omron Health executives and their corporate clients to analyze user activation, participate, and retention metrics related to corporate wellness programs
+- Contributed to the development of Wireharbor Security, an IT risk management solution
 
 ## Education
 
