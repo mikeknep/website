@@ -8,7 +8,7 @@ plugins:
 exclude: [bin, vendor, "Gemfile", "Gemfile.lock", "README.md"]
 url: https://mikeknep.com
 author: Mike Knepper
-title: Invisible Cities
+title: mikeknep
 collections:
   notes:
     output: true
