@@ -2,4 +2,4 @@ targets:
   - name: Now
     url: /now.html
   - name: Whenever
-    url: /whenever.html
+    url: /posts.html
