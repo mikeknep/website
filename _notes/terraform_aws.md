@@ -1,5 +1,5 @@
 ---
-layout: note
+layout: post
 title: Terraform / AWS
 ---
 
