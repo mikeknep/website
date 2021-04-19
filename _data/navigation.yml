@@ -1,4 +1,4 @@
-col:
+targets:
   - name: Now
     url: /now.html
   - name: Whenever

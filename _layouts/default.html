@@ -24,7 +24,11 @@
         <header>
           <div class="column two-thirds flow-opposite">
             <h1 class="title">Mike Knepper</h1>
-            {% include nav.html %}
+            {% for target in site.data.navigation.targets %}
+              <h3>
+                <a href="{{ target.url }}" class="byline no_underline">{{ target.name }} {% if target.url == page.url %} :avocado: {% endif %}</a>
+              </h3>
+            {% endfor %}
           </div>
           <div class="column one-third">
             <a href="/"><img id="me" src="/images/me.jpg"></img></a>

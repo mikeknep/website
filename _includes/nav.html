@@ -1,7 +1,0 @@
-{% for navsec in site.data.nav_sections.col %}
-<h3>
-  {% if navsec.url == page.url %}<strong>{% endif %}
-    <a href="{{ navsec.url }}" class="byline no_underline">{{ navsec.name }} {% if navsec.url == page.url %} :avocado: {% endif %}</a>
-  {% if navsec.url == page.url %}</strong>{% endif %}
-</h3>
-{% endfor %}
