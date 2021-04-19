@@ -56,10 +56,9 @@ article {
     padding-right: 1rem;
   }
 
+  .column.one-half { width: 50%; }
   .column.one-third { width: 33%; }
   .column.two-thirds { width: 66%; }
-  .column.three-fourths { width: 75%; }
-  .column.one-fourth { width: 25%; }
   .column.flow-opposite { float: right; }
 }
 
@@ -173,7 +172,7 @@ img.logo {
   transform: translate(0, 4px);
 }
 
-h1 img.emoji {
+h2 img.emoji {
   height: 100%;
   width: 60px;
 }

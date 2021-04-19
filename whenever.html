@@ -1,0 +1,18 @@
+---
+layout: default
+title: Mike Knepper
+---
+
+<section>
+  {% for note in site.notes %}
+    <article class="column one-half">
+      <a href="{{ note.url }}" class="no_underline">{{ note.title }}</a>
+    </article>
+  {% endfor %}
+
+  {% for post in site.posts %}
+    <article class="column one-half">
+      <a href="{{ post.url }}" class="no_underline">{{ post.title }}</a>
+    </article>
+  {% endfor %}
+</section>
