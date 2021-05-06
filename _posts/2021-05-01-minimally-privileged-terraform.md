@@ -85,7 +85,7 @@ If we back up a moment and think about Terraform at a higher level, we'll rememb
 We're all-in on AWS in this example (and on our current project), but others are using Terraform to provision, say, Azure resources, and storing the infrastructure configuration state in a Terraform Cloud backend.
 
 Given this support for mixing and matching services, we can conclude that Terraform must be able to use different credentials for different operations.
-Specifically, _provisioning resources_ is distinct from from _recording the states of those resources_.
+Specifically, _provisioning resources_ is distinct from _recording the states of those resources_.
 We can therefore create separate `terraform-state` and `terraform-provisioning` roles;
 the former only needs read and write access to the S3 bucket where we store our state—a really nice, tightly defined single responsibility!
 The latter requires CRUD permissions on whatever resources we're provisioning in our account, e.g. ECS, RDS, Route53, etc.
