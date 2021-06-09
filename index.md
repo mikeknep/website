@@ -3,7 +3,7 @@ layout: default
 title: Mike Knepper
 ---
 
-## Hi! I'm Mike. (And that's Tapu.)
+## Hi! I'm Mike.
 
 Welcome to my corner of the internet.
 Here you'll find some comments and notes on [what I'm generally up to these days](./now.html),
