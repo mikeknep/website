@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Baking a Cake with Rails"
-8thLightURL: https://blog.8thlight.com/mike-knepper/2016/04/14/baking-a-cake-with-rails.html
 ---
 
 In my [last post][hidden_costs], I cautioned against hastily reacting to the abundance of talks and blog posts describing migrations away from Rails monoliths.

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Moving Towards Continuous Delivery"
-8thLightURL: https://8thlight.com/blog/mike-knepper/2016/11/10/moving-towards-continuous-delivery.html
 ---
 
 Continuous Delivery is a hot concept in the software industry these days, but can often seem like an impossible goal.

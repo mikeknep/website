@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "The Hidden Costs of Leaving a Monolith"
-8thLightURL: http://blog.8thlight.com/mike-knepper/2016/01/20/hidden-costs-of-leaving-a-monolith.html
 ---
 
 Have you read any blog posts about splitting a Rails monolith into microservices?

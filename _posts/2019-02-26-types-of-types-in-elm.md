@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Types of Types in Elm"
-8thLightURL: https://8thlight.com/blog/mike-knepper/2019/02/26/types-of-types-in-elm.html
 ---
 
 I've recently been working on a project in Elm, and it has been a _blast_.

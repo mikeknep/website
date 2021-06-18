@@ -7,9 +7,6 @@ layout: default
 {% if page.collection == "posts" %}
   <p class="post-date">
     {{ page.date | date: '%B %e, %Y' }}
-    {% if page["8thLightURL"] %}
-      <a href="{{ page['8thLightURL'] }}"><img class="logo" src="/images/8th-Light-Logo.png" /></a>
-    {% endif %}
   </p>
 {% endif %}
 

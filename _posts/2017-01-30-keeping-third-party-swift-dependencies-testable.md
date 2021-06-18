@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Keeping Third-Party Swift Dependencies Testable"
-8thLightURL: https://blog.8thlight.com/mike-knepper/2017/01/30/keeping-third-party-swift-dependencies-testable.html
 ---
 
 When adding a third-party library to a project, I typically find plenty of examples of how to use the library in a dead-simple, script-like way, but not how to properly integrate it into a larger system.

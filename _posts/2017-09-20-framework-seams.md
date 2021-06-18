@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Framework Seams"
-8thLightURL: https://8thlight.com/blog/mike-knepper/2017/09/20/framework-seams.html
 ---
 
 I recently created an open source plugin for [Jekyll][], the Ruby static site generator.

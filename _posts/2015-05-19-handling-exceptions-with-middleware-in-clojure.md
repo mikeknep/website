@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Handling Exceptions with Middleware in Clojure"
-8thLightURL: http://blog.8thlight.com/mike-knepper/2015/05/19/handling-exceptions-with-middleware-in-clojure.html
 ---
 
 My team was recently tasked with developing a few HTTP endpoints in our Clojure service to be used by a separate UI.

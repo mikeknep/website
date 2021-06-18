@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Polyglot Influences in Python"
-8thLightURL: https://8thlight.com/blog/mike-knepper/2019/11/05/polyglot-influence-in-python.html
 ---
 
 One of my favorite aspects of working in different languages on various client projects is seeing how concepts learned in one paradigm bleed into others.
