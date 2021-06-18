@@ -1,5 +1,7 @@
 targets:
   - name: Now
     url: /now.html
-  - name: Whenever
-    url: /posts.html
+  - name: Blog
+    url: /blog.html
+  - name: Tapas
+    url: /tapas.html

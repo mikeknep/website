@@ -1,0 +1,12 @@
+---
+layout: default
+title: Tapas
+---
+
+<section>
+  {% for note in site.notes %}
+    <article class="column one-half">
+      <a href="{{ note.url }}" class="no_underline">{{ note.title }}</a>
+    </article>
+  {% endfor %}
+</section>
