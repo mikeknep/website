@@ -3,23 +3,6 @@ layout: note
 title: Terraform / AWS
 ---
 
-Embrace IAM roles!
-
-`terraform backend` block and `provider "aws"` blocks both optionally take role ARNs.
-These roles _do not need to be the same_.
-Terraform will use different roles for different parts of its operation.
-The provider role is used to create, update, and destroy AWS resources.
-The backend role is used to read and record the state(s) of those resources before and after that work.
-So, you can define a role that only has access to read and write to your Terraform remote state bucket _and do nothing else_.
-We even set up `TerraformRemoteStateReadWrite` and `TerraformRemoteStateRead` (only) roles, the latter used for looking up values via `terraform_remote_state`.
-
-Going "up a level," the credentials used to run `terraform apply` only need the ability to assume the roles used in the Terraform blocks.
-In our case, these creds are either:
-- static/long-lived programmatic access keys belonging to an IAM user used exclusively in our CI environment
-- ephemeral/short-lived programmatic access keys acquired by an SSO user assuming a role in an account
-
----
-
 Services defining / "owning" their own security groups has proven a useful pattern.
 Even if permissions in two different groups are identical, it's good to dedicate groups to individual services.
 1. This lets you easily know when a group is not in use and can be removed
