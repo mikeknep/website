@@ -11,22 +11,6 @@ you only add new ingress rules to the security group of the service that needs t
 
 ---
 
-A good pattern for bucket modules: create "read" and "write" policies and export their arns.
-The result is a module that:
-- has useful "public methods" (the policies, which multiple clients can attach to roles as needed)
-- encapsulates details (no need to expose KMS keys encrypting bucket contents, policy is defined once instead of repeatedly by N clients)
-
-That said, S3 buckets tend to have frustratingly subtle differences that prevent defining a single shared module.
-Examples include:
-- encryption (prefer KMS, but some situations require the default AES256)
-- cross-account access (trusted principals on the bucket's policy)
-To combat this, focus on creating many small modules that can be composed together.
-- client read/write policies
-- bucket policy statements (require SSL, open cross-account access, etc.)
-- kms key with alias and default policy
-
----
-
 Always prefer separate resources to inline blocks on resources.
 Main example: `aws_security_group` and `aws_security_group_rule`.
 Inline rule blocks and separate rule resources will clash.
