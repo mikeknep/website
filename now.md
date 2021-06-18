@@ -13,8 +13,6 @@ deploying that infra via CI,
 and monitoring and observing those systems over time.
 I've found it incredibly satisfying to have my developer colleagues as my direct "customers" or clients.
 
-I'm sharing some ongoing notes from this work in [this document](./notes/terraform_aws.html), as well as writing some more focused, formal posts.
-
 On the side, I've been building a [tool called Jeru](https://github.com/mikeknep/jeru) designed to assist with what I call "Terraform state surgery."
 Follow the link to read more about it on GitHub.
 
