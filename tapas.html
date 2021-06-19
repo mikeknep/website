@@ -3,10 +3,15 @@ layout: default
 title: Tapas
 ---
 
-<section>
+<section class="grid">
   {% for note in site.notes reversed %}
-    <article class="column one-half">
-      <a href="{{ note.url }}" class="no_underline">{{ note.title }}</a>
+    <article class="note-item">
+      <div class="note-item-top">
+        <a href="{{ note.url }}" class="no_underline">{{ note.title }}</a>
+      </div>
+      <div class="note-item-bottom">
+        <time class="post-date">{{ note.date | date: '%B %e, %Y' }}</time>
+      </div>
     </article>
   {% endfor %}
 </section>
