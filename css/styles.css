@@ -75,41 +75,6 @@ article {
 }
 
 
-/* Columns */
-.column {
-  margin-bottom: 1.5rem;
-}
-
-@media (min-width: 40rem) {
-  .column {
-    float: left;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .column.one-half { width: 50%; }
-  .column.one-third { width: 33%; }
-  .column.two-thirds { width: 66%; }
-  .column.flow-opposite { float: right; }
-}
-
-
-/* Clearfix */
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.clearfix {
-  *zoom: 1;
-}
-
-
 /* Links */
 a {
   color: #000;
