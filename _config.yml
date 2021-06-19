@@ -12,3 +12,4 @@ title: mikeknep
 collections:
   notes:
     output: true
+    sort_by: date

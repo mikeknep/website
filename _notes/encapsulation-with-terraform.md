@@ -1,5 +1,6 @@
 ---
 layout: note
+date: 2021-06-18
 title: Encapsulation with Terraform
 ---
 

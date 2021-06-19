@@ -4,7 +4,7 @@ title: Tapas
 ---
 
 <section>
-  {% for note in site.notes %}
+  {% for note in site.notes reversed %}
     <article class="column one-half">
       <a href="{{ note.url }}" class="no_underline">{{ note.title }}</a>
     </article>
