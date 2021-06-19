@@ -229,3 +229,19 @@ article img.emoji {
   height: 100%;
   width: 30px;
 }
+
+
+article.blog-card {
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.blog-card-title {
+  grid-column: 1 / 5;
+  flex: 1;
+}
+
+.blog-card-date {
+  grid-column: 5;
+}

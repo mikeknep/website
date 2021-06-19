@@ -5,8 +5,13 @@ title: Blog
 
 <section>
   {% for post in site.posts %}
-    <article class="column one-half">
-      <a href="{{ post.url }}" class="no_underline">{{ post.title }}</a>
+    <article class="blog-card">
+      <div class="blog-card-title">
+        <a href="{{ post.url }}" class="no_underline">{{ post.title }}</a>
+      </div>
+      <div class="blog-card-date">
+        <time class="post-date">{{ post.date | date: '%B %e, %Y' }}</time>
+      </div>
     </article>
   {% endfor %}
 </section>
