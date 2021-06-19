@@ -138,6 +138,23 @@ header {
   margin-bottom: 4rem;
 }
 
+@media (min-width: 40rem) {
+  header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .header-pic {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .header-text {
+    grid-column: 2 / 4;
+    grid-row: 1;
+  }
+}
+
+
 .title {
   font-family: 'Work Sans', sans-serif;
   font-weight: 700;
@@ -145,7 +162,7 @@ header {
   text-transform: uppercase;
 }
 
-.byline {
+.navigation-target {
   font-family: 'Work Sans', sans-serif;
   font-weight: 300;
   color: #808080;
