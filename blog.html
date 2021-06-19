@@ -10,7 +10,7 @@ title: Blog
         <a href="{{ post.url }}" class="no_underline">{{ post.title }}</a>
       </div>
       <div class="blog-card-date">
-        <time class="post-date">{{ post.date | date: '%B %e, %Y' }}</time>
+        <time class="date">{{ post.date | date: '%B %e, %Y' }}</time>
       </div>
     </article>
   {% endfor %}

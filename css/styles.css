@@ -22,11 +22,87 @@ html {
   }
 }
 
-.grid {
+
+
+/* Header */
+header {
+  margin-top: 6rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 40rem) {
+  header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .header-pic {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .header-text {
+    grid-column: 2 / 4;
+    grid-row: 1;
+  }
+}
+
+.title {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 700;
+  color: #bd2b2b;
+  text-transform: uppercase;
+}
+
+.navigation-target {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 300;
+  color: #808080;
+}
+
+
+
+
+/* Blog Index */
+article.blog-card {
+  display: grid;
   grid-gap: 0.5em;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.blog-card-title {
+  grid-column: 1 / 5;
+  flex: 1;
+}
+
+.blog-card-date {
+  grid-column: 5;
+}
+
+
+
+
+/* Tapas Index */
+section.tapas-grid {
+  grid-gap: 1em;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
+
+article.tapas-card {
+  /* border: 1px solid gray; */
+  border-radius: 2px;
+  box-shadow: gray 0 1px 2px;
+  display: flex;
+  flex-direction: column;
+  padding: .8em 1em;
+  /* outline: 1px solid gray; */
+  /* outline-offset: 8px; */
+}
+
+.tapas-card-title {
+  flex: 1;
+}
+
 
 .note {
   font-size: 150%;
@@ -38,20 +114,6 @@ h1.note-title {
   text-align: center;
 }
 
-.note-item-top {
-  flex: 1;
-}
-
-article.note-item {
-  /* border: 1px solid gray; */
-  border-radius: 2px;
-  box-shadow: gray 0 1px 2px;
-  display: flex;
-  flex-direction: column;
-  padding: .8em 1em;
-  /* outline: 1px solid gray; */
-  /* outline-offset: 8px; */
-}
 
 
 /* Border-box sizing */
@@ -97,42 +159,6 @@ p.back-footer {
 }
 
 
-/* Headers */
-header {
-  margin-top: 6rem;
-  margin-bottom: 4rem;
-}
-
-@media (min-width: 40rem) {
-  header {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .header-pic {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .header-text {
-    grid-column: 2 / 4;
-    grid-row: 1;
-  }
-}
-
-
-.title {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 700;
-  color: #bd2b2b;
-  text-transform: uppercase;
-}
-
-.navigation-target {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 300;
-  color: #808080;
-}
-
 h1,h2,h3 {
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
@@ -146,7 +172,7 @@ p.description {
 
 
 /* Post metadata */
-.post-date {
+.date {
   padding-top: 0.9rem;
   color: #808080;
   font-weight: 300;
@@ -196,17 +222,3 @@ article img.emoji {
 }
 
 
-article.blog-card {
-  display: grid;
-  grid-gap: 0.5em;
-  grid-template-columns: repeat(5, 1fr);
-}
-
-.blog-card-title {
-  grid-column: 1 / 5;
-  flex: 1;
-}
-
-.blog-card-date {
-  grid-column: 5;
-}
