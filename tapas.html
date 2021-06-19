@@ -7,7 +7,7 @@ title: Tapas
   {% for tapa in site.tapas reversed %}
     <article class="tapas-card">
       <div class="tapas-card-title">
-        <a href="{{ tapa.url }}" class="no_underline">{{ tapa.title }}</a>
+        <a href="{{ tapa.url }}">{{ tapa.title }}</a>
       </div>
       <div>
         <time class="date">{{ tapa.date | date: '%B %e, %Y' }}</time>

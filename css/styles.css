@@ -24,10 +24,24 @@ html {
 
 
 
+
+/* Container */
+.container {
+  margin: 0 auto;
+  max-width: 56rem;
+  width: 90%;
+}
+
+
+
+
 /* Header */
 header {
   margin-top: 6rem;
   margin-bottom: 4rem;
+}
+header a {
+  text-decoration: none;
 }
 
 @media (min-width: 40rem) {
@@ -73,6 +87,9 @@ article.blog-card {
   grid-column: 1 / 5;
   flex: 1;
 }
+.blog-card-title a {
+  text-decoration: none;
+}
 
 .blog-card-date {
   grid-column: 5;
@@ -89,18 +106,18 @@ section.tapas-grid {
 }
 
 article.tapas-card {
-  /* border: 1px solid gray; */
   border-radius: 2px;
   box-shadow: gray 0 1px 2px;
   display: flex;
   flex-direction: column;
   padding: .8em 1em;
-  /* outline: 1px solid gray; */
-  /* outline-offset: 8px; */
 }
 
 .tapas-card-title {
   flex: 1;
+}
+.tapas-card-title a {
+  text-decoration: none;
 }
 
 
@@ -128,25 +145,22 @@ h1.tapas-title {
 }
 
 
-/* Container */
-.container {
-  margin: 0 auto;
-  max-width: 56rem;
-  width: 90%;
+article {
+  padding-top: 3%;
 }
 
 
-article {
-  padding-top: 3%;
+.date {
+  padding-top: 0.9rem;
+  color: #808080;
+  font-weight: 300;
+  font-size: 75%;
 }
 
 
 /* Links */
 a {
   color: #000;
-}
-a.no_underline {
-  text-decoration: none;
 }
 a.colored {
   color: #4160b4;
@@ -167,20 +181,6 @@ h1,h2,h3 {
   font-family: 'Work Sans', sans-serif;
   font-weight: 400;
   line-height: 115%;
-}
-
-
-p.description {
-  margin-bottom: 3rem;
-}
-
-
-/* Post metadata */
-.date {
-  padding-top: 0.9rem;
-  color: #808080;
-  font-weight: 300;
-  font-size: 75%;
 }
 
 
@@ -224,5 +224,3 @@ article img.emoji {
   height: 100%;
   width: 30px;
 }
-
-
