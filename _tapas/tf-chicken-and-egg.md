@@ -1,5 +1,5 @@
 ---
-layout: note
+layout: tapas
 date: 2021-06-19
 title: Terraform Chicken and Egg
 ---

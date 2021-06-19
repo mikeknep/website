@@ -104,15 +104,19 @@ article.tapas-card {
 }
 
 
-.note {
+
+
+/* Tapas Content */
+div.tapas-content {
   font-size: 150%;
   line-height: 150%;
   font-weight: 200;
 }
 
-h1.note-title {
+h1.tapas-title {
   text-align: center;
 }
+
 
 
 

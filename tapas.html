@@ -4,13 +4,13 @@ title: Tapas
 ---
 
 <section class="tapas-grid">
-  {% for note in site.notes reversed %}
+  {% for tapa in site.tapas reversed %}
     <article class="tapas-card">
       <div class="tapas-card-title">
-        <a href="{{ note.url }}" class="no_underline">{{ note.title }}</a>
+        <a href="{{ tapa.url }}" class="no_underline">{{ tapa.title }}</a>
       </div>
       <div>
-        <time class="date">{{ note.date | date: '%B %e, %Y' }}</time>
+        <time class="date">{{ tapa.date | date: '%B %e, %Y' }}</time>
       </div>
     </article>
   {% endfor %}
