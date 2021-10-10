@@ -5,26 +5,26 @@ title: Now
 
 ## :computer:
 
-I've been diving deep into Terraform and AWS at work lately,
-leading the "platform team" at my current client.
-My team's general mission is to make it easy for product teams to do the Right Thing (:tm:),
-such as properly configuring infrastructure according to security best practices,
-deploying that infra via CI,
-and monitoring and observing those systems over time.
-I've found it incredibly satisfying to have my developer colleagues as my direct "customers" or clients.
+I lead the platform team at my current client,
+and have found it quite energizing to serve my developer colleagues and focus on accelerating their great work by improving their tools.
+My day-to-day work is heavily focused on AWS infrastructure, which we manage using Terraform as much as possible.
+I've found Terraform to be a delightful tool, and over the past two years have developed expertise in scaling and evolving infrastructure with it.
+To assist with that, I wrote a tool called Jeru, which you can [read about on GitHub](https://github.com/mikeknep/jeru).
+I haven't touched it much lately, but still intend to use it to try building ever-fancier interactive interfaces for command line tools.
 
-On the side, I've been building a [tool called Jeru](https://github.com/mikeknep/jeru) designed to assist with what I call "Terraform state surgery."
-Follow the link to read more about it on GitHub.
+The architectural infra work has also piqued my interest in networking fundamentals and fancy abstractions over them like Kubernetes.
+I picked up [Networking and Kubernetes, A Layered Approach](https://www.oreilly.com/library/view/networking-and-kubernetes/9781492081647/)
+to dive deeper into these topics; hopefully there will be some related tapas or posts here soon!
 
 ---
 
 ## :musical_note:
 
-My saxophones have been stuck in their cases for quite some time now.
-Group rehearsals have always been much more enjoyable and productive than practicing alone,
-but of course COVID has taken those away for now.
-Instead, I've been focusing more on the piano.
-In particular, I've been working on three things:
-- Major scales, all 12 keys, 2 octaves, both hands; this can be a great brain break during the day!
-- Voicings; I would love to be able to comp through some standards with more interesting choices than basic root position on every chord
-- Chopin's Prelude in Db ("Raindrop Prelude")
+After a terribly long delay (thanks COVID), my jazz ensembles are rehearsing again!
+I play tenor and alto saxophones in a big band and a smaller combo group.
+One other member (on trumpet) and I have also recently explored improvising over more electronic dance-y music for a fun change of pace.
+
+The artists I can't stop listening to these days are harpist Brandee Younger and drummer Makaya McCraven.
+It was quite a treat hearing the two together live, with several other great musicians (shout out Greg Ward!) at the Hyde Park Jazz Fest.
+
+---
