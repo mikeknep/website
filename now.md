@@ -10,7 +10,8 @@ and have found it quite energizing to serve my developer colleagues and focus on
 My day-to-day work is heavily focused on AWS infrastructure, which we manage using Terraform as much as possible.
 I've found Terraform to be a delightful tool, and over the past two years have developed expertise in scaling and evolving infrastructure with it.
 To assist with that, I wrote a tool called Jeru, which you can [read about on GitHub](https://github.com/mikeknep/jeru).
-I haven't touched it much lately, but still intend to use it to try building ever-fancier interactive interfaces for command line tools.
+I battle tested it a bit with some legit production code and it works pretty well!
+Next I intend to port some of it to Rust and build a significantly fancier interactive command line interface for it.
 
 The architectural infra work has also piqued my interest in networking fundamentals and fancy abstractions over them like Kubernetes.
 I picked up [Networking and Kubernetes, A Layered Approach](https://www.oreilly.com/library/view/networking-and-kubernetes/9781492081647/)
