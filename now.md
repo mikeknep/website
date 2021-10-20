@@ -9,9 +9,11 @@ I lead the platform team at my current client,
 and have found it quite energizing to serve my developer colleagues and focus on accelerating their great work by improving their tools.
 My day-to-day work is heavily focused on AWS infrastructure, which we manage using Terraform as much as possible.
 I've found Terraform to be a delightful tool, and over the past two years have developed expertise in scaling and evolving infrastructure with it.
+
 To assist with that, I wrote a tool called Jeru, which you can [read about on GitHub](https://github.com/mikeknep/jeru).
 I battle tested it a bit with some legit production code and it works pretty well!
-Next I intend to port some of it to Rust and build a significantly fancier interactive command line interface for it.
+Now I'm working on a slightly different take on the same concept, called [Sandu](https://github.com/mikeknep/sandu).
+It uses Rust and aims to provide a significantly fancier interactive terminal interface to Jeru's `find` command.
 
 The architectural infra work has also piqued my interest in networking fundamentals and fancy abstractions over them like Kubernetes.
 I picked up [Networking and Kubernetes, A Layered Approach](https://www.oreilly.com/library/view/networking-and-kubernetes/9781492081647/)
