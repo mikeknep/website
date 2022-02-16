@@ -5,8 +5,10 @@ title: "Distributing Terraform Resources"
 
 Two years ago, my client formed a "platform team" with the goal of creating a secure, consistent, and extensible cloud infrastructure environment for their multiple product teams.
 The implementation included adopting [AWS Control Tower](https://aws.amazon.com/controltower/) to help manage multiple AWS accounts under one roof.
+
 Control Tower is an opinionated collection of other AWS services, including [Organizations](https://aws.amazon.com/organizations/), [Security Hub](https://aws.amazon.com/security-hub/), [Single Sign-On](https://aws.amazon.com/single-sign-on/), and more.
 Out of the box, it establishes a convention of using **account boundaries** to separate concerns—it creates three [shared accounts](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html#what-shared) for you, and provides a mechanism for quickly vending more accounts as needed.
+
 We embraced this concept of AWS accounts as relatively lightweight resources and ended up defining a pattern where each "product family" has their own set of AWS accounts, one per environment (e.g. development, staging, production).
 This pattern has yielded a number of benefits, including limiting the blast radius should a particular account be compromised,
 increasing the level of ownership each product team has over its accounts,
@@ -22,7 +24,7 @@ It typically requires manually duplicating code, which at our scale of literally
 
 In this post I provide more detail into this problem, and describe two techniques we use to harness the benefits of our distributed approach, while cutting down on the tedium and avoiding excessive repetition in our codebase.
 
-### Terraform's `for_each`
+### Exploring the challenges with Terraform's `for_each`
 
 Let's imagine we need several [SQS queues](https://aws.amazon.com/sqs/) for sending messages to consumer services.
 Each queue must be encrypted with its own [KMS key](https://aws.amazon.com/kms/) for security purposes, and have a dedicated [dead letter queue](https://en.wikipedia.org/wiki/Dead_letter_queue) in case of problems like processing errors or expirations.
@@ -65,7 +67,7 @@ module "queues" {
 ```
 
 Cool! We now have three sets of production-grade queues.
-Except, there's one limitation here: they're all in the same "place".
+Except, there's one limitation here: they're all in the same "place."
 The AWS provider above specifies a role in the AWS account `111111111111`, in the `eu-west-1` (Ireland) region.
 What if we want to _distribute_ encrypted queues across different accounts, or regions, or (caution: Cartesian product territory!) both?
 
@@ -109,7 +111,7 @@ module "queues" {
 ```
 
 Again, the example above is **invalid** Terraform code, but expresses what I wish was possible, as it would be the most concise declaration of what we want to provision.
-Instead, it seems we are forced into typing out nearly-duplicative module invocations, only changing the address and `providers` block each time:
+Instead, it seems we are forced into typing out nearly duplicative module invocations, only changing the address and `providers` block each time:
 
 ```terraform
 module "queue_ireland" {
@@ -136,7 +138,7 @@ module "queue_oregon" {
 The snippet above isn't too egregious, but extending this pattern to over a dozen regions, or in our case across over 30 AWS accounts, becomes very tedious and error-prone.
 Our team felt there had to be a better approach, and fortunately we found two.
 
-### Terraform Workspaces
+### Approach 1: Terraform Workspaces
 
 A Terraform "workspace" is a kind of context or setting in which Terraform is executed.
 Technically speaking Terraform always runs in a workspace, but most of the time you are simply in the `default` workspace and don't need to think about it.
@@ -149,7 +151,7 @@ terraform workspace select $WORKSPACE
 ```
 
 Each workspace has its own state file.
-Terraform will automatically set up approrpiate "paths" in your backend to avoid conflicts:
+Terraform will automatically set up appropriate "paths" in your backend to avoid conflicts:
 
 ```terraform
 # main.tf
@@ -194,14 +196,14 @@ Furthermore, since they have their own state files, workspaces are applied indep
 This can be either beneficial (you could "workspace by" environment to apply dev first, then staging, then production)
 or tedious (confirming all workspaces are in the same state becomes a pain as their number increases and you have to continually run `terraform workspace select x && terraform plan`).
 
-### Terraforming Terraform
+### Approach 2: Terraforming Terraform
 
 Another approach to this problem is to generate Terraform code programmatically.
-When our team began considering this, our first question was what language should we use, and we quickly landed on a neat idea: what if we used Terraform itself to generate more Terraform code?
+When our team began considering this and determining what language to use, and we quickly landed on a neat idea: what if we used Terraform itself to generate more Terraform code?
 As an infrastructure-focused team of polyglots with very different backgrounds, the idea of maintaining a minimal "stack footprint" centered on Terraform was appealing.
 
 The implementation details are for another blog post,
-but suffice to say by using the [local_file resource](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file), the [templatefile function](https://www.terraform.io/language/functions/templatefile),  and built-in looping constructs,
+but suffice to say by using the [local_file resource](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file), the [templatefile function](https://www.terraform.io/language/functions/templatefile), and built-in looping constructs,
 we defined a `generated_file` module that, given a **template** of Terraform code and a **collection** of values to fill into that template,
 produces a valid Terraform file with a bunch of nearly-duplicative-but-slightly-different elements.
 For example:
