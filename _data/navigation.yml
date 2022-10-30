@@ -1,6 +1,4 @@
 targets:
-  - name: Now
-    url: /now.html
   - name: Blog
     url: /blog.html
   - name: Tapas
