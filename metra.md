@@ -14,7 +14,7 @@ layout: base
 
 <br>
 
-## Downtown to RP
+## Downtown to Rogers Park
 
 ### Full schedules w/ all stops
 <ul>
