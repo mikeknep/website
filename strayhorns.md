@@ -4,7 +4,7 @@ layout: base
 ---
 
 
-## Vol 1
+## Book 1
 
 - All of Me – 20
 - Beautiful Love – 40
@@ -12,8 +12,6 @@ layout: base
 - Black Nile – 48
 - Blue Bossa – 50
 - D Natural Blues – 95
-- Four – 149
-- Four on Six – 150
 - I Can't Give You Anything But Love – 185
 - Lullaby of Birdland – 256
 - Mr. PC – 276
